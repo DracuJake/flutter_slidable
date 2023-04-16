@@ -198,6 +198,11 @@ class SlidableAction extends StatelessWidget {
       children.add(
         Text(
           label!,
+          style: const TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+            color: Colors.white
+          ),
           overflow: TextOverflow.ellipsis,
         ),
       );
