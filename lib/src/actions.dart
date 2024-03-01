@@ -85,11 +85,7 @@ class CustomSlidableAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectiveForegroundColor = foregroundColor ??
-        (ThemeData.estimateBrightnessForColor(backgroundColor) ==
-                Brightness.light
-            ? Colors.black
-            : Colors.white);
+    final effectiveForegroundColor = foregroundColor ?? (ThemeData.estimateBrightnessForColor(backgroundColor) == Brightness.light ? Colors.black : Colors.white);
 
     return Expanded(
       flex: flex,
@@ -97,10 +93,10 @@ class CustomSlidableAction extends StatelessWidget {
         child: OutlinedButton(
           onPressed: () => _handleTap(context),
           style: OutlinedButton.styleFrom(
+            foregroundColor: effectiveForegroundColor,
             padding: padding,
             backgroundColor: backgroundColor,
-            primary: effectiveForegroundColor,
-            onSurface: effectiveForegroundColor,
+            disabledForegroundColor: effectiveForegroundColor.withOpacity(0.38),
             shape: RoundedRectangleBorder(
               borderRadius: borderRadius,
             ),
@@ -198,11 +194,7 @@ class SlidableAction extends StatelessWidget {
       children.add(
         Text(
           label!,
-          style: const TextStyle(
-            fontSize: 12,
-            fontWeight: FontWeight.w700,
-            color: Colors.white
-          ),
+          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Colors.white),
           overflow: TextOverflow.ellipsis,
         ),
       );
